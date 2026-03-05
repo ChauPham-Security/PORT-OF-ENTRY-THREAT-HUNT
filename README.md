@@ -164,6 +164,7 @@ DeviceProcessEvents
 | order by TimeGenerated asc
 ```
 **Querry result**
+
 <img width="880" height="234" alt="Screenshot 2026-03-04 at 6 44 42 PM" src="https://github.com/user-attachments/assets/04eb7229-4439-47f0-a067-5185a6e96ada" />
 
 
@@ -199,6 +200,7 @@ DeviceFileEvents
 | order by TimeGenerated asc
 ```
 **Querry result**
+
 <img width="881" height="358" alt="Screenshot 2026-03-04 at 6 45 27 PM" src="https://github.com/user-attachments/assets/3ecacae3-b3ba-4bda-a524-eaaec7a95647" />
 
 ---
@@ -233,6 +235,7 @@ DeviceRegistryEvents
 | order by TimeGenerated asc
 ```
 **Querry result**
+
 <img width="873" height="329" alt="Screenshot 2026-03-04 at 6 45 52 PM" src="https://github.com/user-attachments/assets/94d9bb43-85e2-40c4-8ee2-db3c511d31eb" />
 
 ---
@@ -267,6 +270,7 @@ DeviceRegistryEvents
 | order by TimeGenerated asc
 ```
 **Querry result**
+
 <img width="869" height="282" alt="Screenshot 2026-03-04 at 6 47 09 PM" src="https://github.com/user-attachments/assets/b71db9e1-e288-4791-a1f3-6bccef478505" />
 
 ---
@@ -302,6 +306,7 @@ DeviceProcessEvents
 | order by TimeGenerated asc
 ```
 **Querry result**
+
 <img width="871" height="345" alt="Screenshot 2026-03-04 at 6 48 21 PM" src="https://github.com/user-attachments/assets/79ff0a2e-f579-4c86-8f01-44dbc4d3b6f1" />
 
 ---
@@ -337,6 +342,9 @@ DeviceProcessEvents
 | order by TimeGenerated asc
 ```
 **Querry result**
+
+<img width="887" height="255" alt="Screenshot 2026-03-04 at 6 55 45 PM" src="https://github.com/user-attachments/assets/96338126-e287-40bf-a53e-ace9990ed950" />
+
 ---
 
 ### Flag 9: Scheduled Task Target
@@ -358,6 +366,11 @@ Identify the executable path configured in the scheduled task?
 **Analysis**
 
 No new query was needed for this flag. The answer comes from the same `schtasks.exe /create` command line identified in Flag 8. The `/tr` parameter tells Windows what program to execute when the scheduled task triggers. Reading the value after `/tr` in the same result revealed the malicious executable path. The attacker named it `svchost.exe` to disguise it as a legitimate Windows process.
+
+**Querry result**
+
+<img width="869" height="256" alt="Screenshot 2026-03-04 at 6 56 35 PM" src="https://github.com/user-attachments/assets/603877b8-3b47-4027-b491-1244ec9a1102" />
+
 
 ---
 
