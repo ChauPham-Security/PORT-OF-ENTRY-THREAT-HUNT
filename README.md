@@ -94,6 +94,8 @@ DeviceLogonEvents
 | where RemoteIP != ""
 | project TimeGenerated, AccountName, DeviceName, ActionType, RemoteIP, RemoteIPType
 ```
+<img width="869" height="361" alt="Screenshot 2026-03-04 at 6 42 32 PM" src="https://github.com/user-attachments/assets/273ee506-8f8b-405b-9401-92587609ca06" />
+
 
 ---
 
@@ -159,6 +161,8 @@ DeviceProcessEvents
 | project TimeGenerated, AccountName, ActionType, DeviceName, ProcessCommandLine, InitiatingProcessCommandLine
 | order by TimeGenerated asc
 ```
+<img width="880" height="234" alt="Screenshot 2026-03-04 at 6 44 42 PM" src="https://github.com/user-attachments/assets/04eb7229-4439-47f0-a067-5185a6e96ada" />
+
 
 ---
 
@@ -191,6 +195,8 @@ DeviceFileEvents
 | project TimeGenerated, FileName, FolderPath, ActionType, InitiatingProcessCommandLine
 | order by TimeGenerated asc
 ```
+<img width="881" height="358" alt="Screenshot 2026-03-04 at 6 45 27 PM" src="https://github.com/user-attachments/assets/3ecacae3-b3ba-4bda-a524-eaaec7a95647" />
+
 
 ---
 
@@ -219,10 +225,12 @@ Since the question asks about Windows Defender exclusions, I used the `DeviceReg
 ```kql
 DeviceRegistryEvents
 | where DeviceName == "azuki-sl"
-| where RegistryKey has @"Exclusions\Extensions"
+| where RegistryKey has "Exclusions\\Extensions"
 | project TimeGenerated, ActionType, RegistryKey, RegistryValueName, RegistryValueData
 | order by TimeGenerated asc
 ```
+
+<img width="873" height="329" alt="Screenshot 2026-03-04 at 6 45 52 PM" src="https://github.com/user-attachments/assets/94d9bb43-85e2-40c4-8ee2-db3c511d31eb" />
 
 ---
 
@@ -251,10 +259,12 @@ This flag is similar to Flag 5 but instead of looking for extension exclusions, 
 ```kql
 DeviceRegistryEvents
 | where DeviceName == "azuki-sl"
-| where RegistryKey has @"Exclusions\Paths"
+| where RegistryKey has "Exclusions\\Paths"
 | project TimeGenerated, ActionType, RegistryKey, RegistryValueName, RegistryValueData
 | order by TimeGenerated asc
 ```
+
+<img width="869" height="282" alt="Screenshot 2026-03-04 at 6 47 09 PM" src="https://github.com/user-attachments/assets/b71db9e1-e288-4791-a1f3-6bccef478505" />
 
 ---
 
@@ -288,6 +298,8 @@ DeviceProcessEvents
 | project TimeGenerated, FileName, ProcessCommandLine
 | order by TimeGenerated asc
 ```
+
+<img width="871" height="345" alt="Screenshot 2026-03-04 at 6 48 21 PM" src="https://github.com/user-attachments/assets/79ff0a2e-f579-4c86-8f01-44dbc4d3b6f1" />
 
 ---
 
