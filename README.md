@@ -405,6 +405,9 @@ DeviceNetworkEvents
 | order by TimeGenerated asc
 ```
 **Querry result**
+
+<img width="726" height="225" alt="Screenshot 2026-03-05 at 6 35 46 PM" src="https://github.com/user-attachments/assets/2e6098a5-23d3-4db4-97af-f7c7e0af6404" />
+
 ---
 
 ### Flag 11: C2 Communication Port
@@ -426,6 +429,11 @@ Identify the destination port used for command and control communications?
 **Analysis**
 
 No new query was needed for this flag. The answer comes directly from the `RemotePort` field in the same `DeviceNetworkEvents` results from Flag 10. The malware communicated over port `443`, which is the standard HTTPS port. The attacker intentionally used this port to blend C2 traffic in with normal encrypted web traffic and avoid detection.
+
+**Querry result**
+
+<img width="725" height="210" alt="Screenshot 2026-03-05 at 6 36 20 PM" src="https://github.com/user-attachments/assets/f432bfda-0b75-4246-9668-495d7929d0d7" />
+
 
 ---
 
@@ -461,6 +469,9 @@ DeviceFileEvents
 ```
 **Querry result**
 
+<img width="725" height="231" alt="Screenshot 2026-03-05 at 6 36 53 PM" src="https://github.com/user-attachments/assets/ad715e63-7aa2-4d62-bab5-b6924d114de5" />
+
+
 ---
 
 ### Flag 13: Memory Extraction Module
@@ -493,6 +504,9 @@ DeviceProcessEvents
 | order by TimeGenerated asc
 ```
 **Querry result**
+
+<img width="724" height="268" alt="Screenshot 2026-03-05 at 6 37 14 PM" src="https://github.com/user-attachments/assets/e7f30dc2-f2d4-414e-8e3d-28cf0b130b45" />
+
 ---
 
 ### Flag 14: Data Staging Archive
@@ -525,6 +539,9 @@ DeviceFileEvents
 | order by TimeGenerated asc
 ```
 **Querry result**
+
+<img width="724" height="290" alt="Screenshot 2026-03-05 at 6 37 33 PM" src="https://github.com/user-attachments/assets/8de4b88d-3fa6-4403-8578-350c87549b9c" />
+
 ---
 
 ### Flag 15: Exfiltration Channel
@@ -558,6 +575,9 @@ DeviceNetworkEvents
 ```
 **Querry result**
 
+<img width="724" height="256" alt="Screenshot 2026-03-05 at 6 37 52 PM" src="https://github.com/user-attachments/assets/d9ff4937-1ea8-413c-9cc4-cd2382e9e617" />
+
+
 ---
 
 ### Flag 16: Log Tampering
@@ -590,6 +610,9 @@ DeviceProcessEvents
 | order by TimeGenerated asc
 ```
 **Querry result**
+
+<img width="724" height="322" alt="Screenshot 2026-03-05 at 6 38 11 PM" src="https://github.com/user-attachments/assets/7ef3d4b5-7f26-45d5-9fb9-0e29e037461a" />
+
 ---
 
 ### Flag 17: Persistence Account
@@ -622,6 +645,9 @@ DeviceProcessEvents
 | order by TimeGenerated asc
 ```
 **Querry result**
+
+<img width="721" height="356" alt="Screenshot 2026-03-05 at 6 38 32 PM" src="https://github.com/user-attachments/assets/5a05e16c-faad-43dd-9548-87d881b2b09c" />
+
 ---
 
 ### Flag 18: Malicious Script
@@ -656,6 +682,10 @@ DeviceFileEvents
 | order by TimeGenerated asc
 ```
 **Querry result**
+
+<img width="723" height="199" alt="Screenshot 2026-03-05 at 6 38 52 PM" src="https://github.com/user-attachments/assets/c4b4993a-7aba-4833-a450-ab348667f5cf" />
+
+
 ---
 
 ### Flag 19: Secondary Target
@@ -689,6 +719,8 @@ DeviceProcessEvents
 ```
 **Querry result**
 
+<img width="725" height="343" alt="Screenshot 2026-03-05 at 6 39 12 PM" src="https://github.com/user-attachments/assets/4319ff9c-7db5-4c22-a100-73281bf8973a" />
+
 ---
 
 ### Flag 20: Remote Access Tool
@@ -710,6 +742,11 @@ Identify the remote access tool used for lateral movement?
 **Analysis**
 
 No new query was needed for this flag. The answer comes directly from the same results as Flag 19. The `ProcessCommandLine` field showed `mstsc.exe` being executed with the `/v:10.1.0.188` argument, which tells it to connect to that specific IP address via RDP. `mstsc.exe` is the built-in Windows Remote Desktop tool, making it a preferred choice for attackers during lateral movement because it blends in with legitimate administrative activity and is less likely to raise suspicion.
+
+**Querry result**
+
+<img width="724" height="338" alt="Screenshot 2026-03-05 at 6 39 37 PM" src="https://github.com/user-attachments/assets/f033522d-ef5b-47b1-98d2-0bd9c1e871f6" />
+
 
 ---
 
